@@ -1,7 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: 	rgb(255,99,71);
-
+    background-color: rgb(255, 99, 71);
 }
 
 h1,
@@ -19,6 +18,7 @@ p {
 }
 
 #chrono {
+    font-weight: bold;
     margin-bottom: 15%;
 }
 
@@ -56,29 +56,43 @@ main {
     align-items: center;
 }
 
-#travail,#pause {
+#work,
+#break {
     flex: 1;
     text-align: center;
     padding: 3vh;
 }
 
-#chronoContainer{
+#chronoContainer {
     border-style: solid;
-    border: 100px  white;
+    border: 100px white;
     margin-bottom: 100px;
 }
 
-.inputs{
+.inputs {
     color: lightgoldenrodyellow;
     padding: 3vh;
 }
+
 #circleContainer {
-    display: flex;
     margin: 50px auto;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px  solid lightgoldenrodyellow;
+    border: 10px solid lightgoldenrodyellow;
     border-radius: 50%;
     width: 300px;
     height: 300px;
+}
+
+label {
+    display: inline-block;
+    font-size: 2vh;
+    width: 260px;
+}
+
+#workTimeInput,
+#breakTimeInput {
+    height: 3vh;
+    width: 5vh;
 }

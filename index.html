@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Lien avec mon css-->
+    <!-- Link with my css -->
 
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Lien avec FONT GOOGLE-->
+    <!-- Link with FONT GOOGLE-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <!-- Lien avec FONT AWESOME KIT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+    <!-- Link with FONT AWESOME KIT-->
     <script src="https://kit.fontawesome.com/99ee30a55c.js" crossorigin="anonymous"></script>
 
     <title>Pomodoro</title>
@@ -28,45 +31,50 @@
         </header>
 
         <div class="box">
-            <p id="travail">Travail</p>
-            <p id="pause">Pause</p>
+            <p id="work">Work</p>
+            <p id="break">Break</p>
         </div>
 
-       
+
+        <!-- Container designed as a circle around the timer -->
         <div id="circleContainer">
             <p id="chrono"> </p>
         </div>
 
-     
+
 
         <div class="container">
-            <button id="lancer" aria-label="lancer" onclick="run()">
-                <!--Création d'un bouton qui a pour fonction quand on clique dessus lancer-->
+            <button id="running" aria-label="running" onclick="run()">
+                <!--Button which permit the running-->
                 <em class="fa-solid fa-play"></em>
-                <!--Image de flèche symbolisant le lancement -->
+                <!--Image of arrow that means the running-->
             </button>
 
 
 
             <button id="redem" aria-label="redem" onclick="redem()">
-                <!--Création d'un bouton qui a pour fonction quand on clique dessus redem-->
+                <!--Button which permit the reload-->
                 <em class="fa-solid fa-arrow-rotate-left"></em>
-                <!--Image de flèche symbolisant le redémarrage -->
+                <!--Image of arrow that means the reload-->
             </button>
         </div>
         <div class="inputs">
+            <!-- The inputs for the desired time  -->
+            <label for="workTimeInput"> Enter your desired work time : </label>
+            <input type="number" id="workTimeInput" name="workTimeInput" maxlength="3" min="1" max="59">
 
-            <label for="workTimeInput"> Enter your desired work time</label>
-            <input type="text" id="workTimeInput" name="workTimeInput" maxlength="3">
             <br>
-            <label for="workTimeInput"> Enter your desired break  time</label>
-            <input type="text" id="breakTimeInput" name="breakTimeInput" maxlength="3">
+            <br>
+
+            <label for="breakTimeInput"> Enter your desired break time : </label>
+            <input type="number" id="breakTimeInput" name="breakTimeInput" maxlength="3" min="1" max="59">
 
         </div>
 
 
     </main>
     <script src="js/app.js"></script>
+    <footer>Developed by Maxence Levesque</footer>
 
 </body>
 
