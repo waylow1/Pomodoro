@@ -69,6 +69,7 @@ main {
 }
 
 .inputs{
+    color: lightgoldenrodyellow;
     padding: 3vh;
 }
 #circleContainer {
