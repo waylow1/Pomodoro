@@ -32,6 +32,9 @@ function affichage(chrono) {
     return temps;
 }
 
+
+
+
 function travail() {
     label[0].style.color="lightgoldenrodyellow";
     label[1].style.color="whitesmoke";

@@ -32,10 +32,12 @@
             <p id="pause">Pause</p>
         </div>
 
+       
+        <div id="circleContainer">
+            <p id="chrono"> </p>
+        </div>
+
      
-            <p id="chrono"></p>
-
-
 
         <div class="container">
             <button id="lancer" aria-label="lancer" onclick="run()">
@@ -52,7 +54,12 @@
                 <!--Image de flèche symbolisant le redémarrage -->
             </button>
         </div>
-        <div class="saisies">
+        <div class="inputs">
+
+            <label for="workTimeInput"> Enter your desired work time</label>
+            <input type="text" id="workTimeInput" name="workTimeInput" maxlength="3">
+            <label for="workTimeInput"> Enter your desired break  time</label>
+            <input type="text" id="breakTimeInput" name="breakTimeInput" maxlength="3">
 
         </div>
 
