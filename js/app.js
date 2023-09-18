@@ -1,17 +1,27 @@
-let tempsInitial = 25;
-let tempsPause = 5;
-let secondePause = 0;
-let secondeInitial = 0;
-let pause = false;
+let workMin = 0;
+let workSec = 10;
+
+let  minWork = workMin ; 
+let secWork = workSec;
+
+let breakMin = 0;
+let breakSec = 10;
+
+let minBreak = breakMin;
+let secBreak = breakSec;
+
+
+
 let timerInterval;
+let timerIntervalPause;
 
 let label = document.querySelectorAll("p");
 let boutonLancer = document.getElementById('lancer');
 let boutonRedem = document.getElementById('redem');
 
 function load() {
-    document.getElementById("chrono").innerHTML = `${affichage(tempsInitial)} : ${affichage(secondeInitial)}`;
-    boutonRedem.style.display = 'none';
+    document.getElementById("chrono").innerHTML = `${affichage(workMin)} : ${affichage(workSec)}`;
+    boutonRedem.style.display = 'none';  
 }
 
 function affichage(chrono) {
@@ -22,47 +32,66 @@ function affichage(chrono) {
     return temps;
 }
 
-function test() {
-    if (!(tempsInitial <= 0)) {
-        if (!(secondeInitial <= 0)) {
-            document.getElementById("chrono").innerHTML = `${affichage(tempsInitial)} : ${affichage(secondeInitial)}`;
-            secondeInitial--;
+function travail() {
+    label[0].style.color="lightgoldenrodyellow";
+    label[1].style.color="whitesmoke";
+    document.getElementById("chrono").innerHTML = `${affichage(workMin)} : ${affichage(workSec)}`;
+    if (workMin != 0 || workSec!=0) {
+        if (workSec > 0) {
+            workSec--;
         }
-        if (secondeInitial == 0) {
-            secondeInitial = 59;
-            tempsInitial--;
+        else{
+            workSec = 59;
+            workMin--;
         }
     }
-    if (pause) {
-        label[0].style.color = "whitesmoke";
-        label[1].style.color = "lightgoldenrodyellow";
-    }
+    else{
+        document.body.style.backgroundColor="Green";
+        clearInterval(timerInterval);
+        label[0].style.color="whitesmoke";
+        label[1].style.color="lightgoldenrodyellow";
+
+        breakMin=minBreak;
+        breakSec=secBreak;
+
+        timerIntervalPause = setInterval(pause,1000);
+    } 
 }
 
-function lancer() {
-    pause = false;
-    boutonLancer.style.display = 'none';
-    boutonRedem.style.display = 'block';
-    label[0].style.color = "lightgoldenrodyellow";
-
-    timerInterval = setInterval(test,1000);
-    if (tempsInitial <= 0 && secondeInitial <= 0) {
-        clearInterval(timerInterval); 
+function pause(){
+    document.getElementById("chrono").innerHTML = `${affichage(breakMin)} : ${affichage(breakSec)}`;
+    if (breakMin != 0 || breakSec!=0) {
+        if (breakSec > 0) {
+            breakSec--;
+        }
+        else{
+            breakSec = 59;
+            breakMin--;
+        }
     }
+    else{
+        document.body.style.backgroundColor="rgb(255,99,71)";
+        clearInterval(timerIntervalPause);
+        label[0].style.color="lightgoldenrodyellow";
+        label[1].style.color="whitesmoke";
 
+        
+        workMin=minWork;
+        workSec=secWork;
+
+        timerInterval = setInterval(travail,1000);
+        }
+}
+
+
+function run() {
+        boutonLancer.style.display = 'none';
+        boutonRedem.style.display = 'block';
+        timerInterval = setInterval(travail, 1000);
 }
 
 function redem() {
-    clearInterval(timerInterval);
-    boutonRedem.style.display = 'none';
-    boutonLancer.style.display = 'block';
-    tempsInitial = 25;
-    tempsPause = 5;
-    secondePause = 0;
-    secondeInitial = 0;
-    document.getElementById("chrono").innerHTML = `${affichage(tempsInitial)} : ${affichage(secondeInitial)}`;
-    label[0].style.color = "whitesmoke";
-    pause = false;
+   location.reload();
 }
 
 document.addEventListener("DOMContentLoaded", load);
