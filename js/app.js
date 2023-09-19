@@ -55,7 +55,7 @@ inputWork.onchange = function () {
 
 inputBreak.onchange = function () {
     let min2 = inputBreak.value;
-    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min)){
+    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min2)){
         breakMin=min2;
         minBreak = breakMin;
         breakSec=0;
