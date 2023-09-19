@@ -34,23 +34,15 @@ let inputBreak = document.getElementById('breakTimeInput');
 
 inputWork.onchange = function () {
     let min = inputWork.value;
-    console.log(min);
-    if (min.includes("e") || (min.includes("E"))) {
-        alert("Nous n'acceptons pas les écritures scientifiques");
+    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min)){
+        workMin=min;
+        minWork = workMin;
+        workSec=0;
     }
-    let charSpliter = min.split(".");
-    min = charSpliter[0];
-    let sec = charSpliter[1];
-
-    if (sec === undefined) {
-        workMin = min;
-        workSec = 0;
+    else{
+        alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
     }
-    else {
-        workMin = min;
-        workSec = sec * 6;
-    }
-    minWork = workMin;
+    
     secWork = workSec;
     updateLocalStorage();
 
@@ -60,19 +52,14 @@ inputWork.onchange = function () {
 
 inputBreak.onchange = function () {
     let min2 = inputBreak.value;
-    let charSpliter2 = min2.split(".");
-    min2 = charSpliter2[0];
-    let sec2 = charSpliter2[1];
-
-    if (sec2 === undefined) {
-        breakMin = min2;
-        breakSec = 0;
+    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min)){
+        breakMin=min2;
+        minBreak = breakMin;
+        breakSec=0;
     }
-    else {
-        breakMin = min2;
-        breakSec = sec2 * 6;
+    else{
+        alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
     }
-    minBreak = breakMin;
     secBreak = breakSec;
     updateLocalStorage();
 };
@@ -92,44 +79,16 @@ function updateLocalStorage() {
 function loadFromLocalStorage() {
     const savedWorkTime = localStorage.getItem('workTime');
     const savedBreakTime = localStorage.getItem('breakTime');
-    console.log(savedBreakTime + savedWorkTime);
     if (savedWorkTime) {
         inputWork.value = savedWorkTime;
-        let min4 = inputWork.value;
-        let charSpliter4 = min4.split(".");
-        min4 = charSpliter4[0];
-        let sec4 = charSpliter4[1];
-    
-        if (sec4 === undefined) {
-            workMin = min4;
-            workSec = 0;
-        }
-        else {
-            workMin = min4;
-            workSec = sec4 * 6;
-        }
-        minWork = workMin;
-        secWork = workSec;
-
+        workMin=inputWork.value;
+        minWork=inputWork.value;
     }
 
     if (savedBreakTime) {
         inputBreak.value = savedBreakTime;
-        let min3 = inputWork.value;
-        let charSpliter3 = min3.split(".");
-        min3 = charSpliter3[0];
-        let sec3 = charSpliter3[1];
-
-        if (sec3 === undefined) {
-            breakMin = min3;
-            breakSec = 0;
-        }
-        else {
-            breakMin = min3;
-            breakSec = sec3 * 6;
-        }
-        minBreak = breakMin;
-        secBreak = breakSec;
+        breakMin=inputBreak.value;
+        minBreak=inputBreak.value;
     }
 }
 
@@ -168,7 +127,7 @@ function work() {
         breakMin = minBreak;
         breakSec = secBreak;
 
-        timerIntervalbreak = setInterval(breaks, 1000);
+        timerIntervalBreak = setInterval(breaks, 1000);
     }
 }
 
@@ -203,6 +162,8 @@ function breaks() {
 //This is the function that is started when the run button is clicked, it makes the button run disappear and show the resetButton.
 
 function run() {
+    var audio = new Audio('audio/time_to_work.wav');
+    audio.play();
     runButton.style.display = 'none';
     resetButton.style.display = 'block';
     timerInterval = setInterval(work, 1000);
