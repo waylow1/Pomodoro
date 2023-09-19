@@ -34,18 +34,18 @@ let inputBreak = document.getElementById('breakTimeInput');
 
 inputWork.onchange = function () {
     let min = inputWork.value;
-    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min)){
-        workMin=min;
+    if (/^(?:[1-9]|[1-5][0-9]|60)$/.test(min)) {
+        workMin = min;
         minWork = workMin;
-        workSec=0;
+        workSec = 0;
     }
-    else{
+    else {
         alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
-        workMin=25;
+        workMin = 25;
         minWork = workMin;
-        workSec=0;
+        workSec = 0;
     }
-    
+
     secWork = workSec;
     updateLocalStorage();
 
@@ -55,16 +55,16 @@ inputWork.onchange = function () {
 
 inputBreak.onchange = function () {
     let min2 = inputBreak.value;
-    if(/^(?:[1-9]|[1-5][0-9]|60)$/.test(min2)){
-        breakMin=min2;
+    if (/^(?:[1-9]|[1-5][0-9]|60)$/.test(min2)) {
+        breakMin = min2;
         minBreak = breakMin;
-        breakSec=0;
+        breakSec = 0;
     }
-    else{
+    else {
         alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
-        breakMin=5;
+        breakMin = 5;
         minBreak = breakMin;
-        breakSec=0;
+        breakSec = 0;
     }
     secBreak = breakSec;
     updateLocalStorage();
@@ -87,14 +87,14 @@ function loadFromLocalStorage() {
     const savedBreakTime = localStorage.getItem('breakTime');
     if (savedWorkTime) {
         inputWork.value = savedWorkTime;
-        workMin=inputWork.value;
-        minWork=inputWork.value;
+        workMin = inputWork.value;
+        minWork = inputWork.value;
     }
 
     if (savedBreakTime) {
         inputBreak.value = savedBreakTime;
-        breakMin=inputBreak.value;
-        minBreak=inputBreak.value;
+        breakMin = inputBreak.value;
+        minBreak = inputBreak.value;
     }
 }
 

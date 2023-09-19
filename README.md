@@ -17,6 +17,11 @@ This web application is based on the Pomodoro technique, a time management metho
 2. Then go to the project directory : `cd Pomodoro`
 3. You can also use it directly on my github page : `https://waylow1.github.io/Pomodoro/`
 
+## Adaptability and Validations
+1. WCAG 2.0 level AAis respected
+2. The application is responsive, you can use it on tablet or phone.
+
+
 ## Use
 1. Config the length of your work session and your break session. 
 2. Click on the button play to start the cycle
