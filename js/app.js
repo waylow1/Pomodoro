@@ -41,6 +41,9 @@ inputWork.onchange = function () {
     }
     else{
         alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
+        workMin=25;
+        minWork = workMin;
+        workSec=0;
     }
     
     secWork = workSec;
@@ -59,6 +62,9 @@ inputBreak.onchange = function () {
     }
     else{
         alert("Erreur lors de la saisie le chiffre est trop grand ou comporte des décimaux");
+        breakMin=5;
+        minBreak = breakMin;
+        breakSec=0;
     }
     secBreak = breakSec;
     updateLocalStorage();

@@ -70,7 +70,7 @@ p {
 
 #chrono {
     font-weight: bold;
-    margin-bottom: 15%;
+    font-size: 5vh;
 }
 
 
@@ -114,11 +114,6 @@ main {
     padding: 3vh;
 }
 
-#chronoContainer {
-    border-style: solid;
-    border: 100px white;
-    margin-bottom: 100px;
-}
 
 .inputs {
     color: lightgoldenrodyellow;
@@ -132,9 +127,10 @@ main {
     align-items: center;
     border: 10px solid lightgoldenrodyellow;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 30vh;
+    height: 30vh;
 }
+
 
 label {
     display: inline-block;
