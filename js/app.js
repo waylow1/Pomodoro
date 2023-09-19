@@ -86,12 +86,23 @@ function loadFromLocalStorage() {
     const savedWorkTime = localStorage.getItem('workTime');
     const savedBreakTime = localStorage.getItem('breakTime');
     if (savedWorkTime) {
-        inputWork.value = savedWorkTime;
+        if(savedWorkTime>60){
+            inputWork.value = 25;
+        }
+        else{
+            inputWork.value=savedWorkTime;
+        }
         workMin = inputWork.value;
         minWork = inputWork.value;
     }
 
     if (savedBreakTime) {
+        if(savedBreakTime>60){
+            inputBreak.value = 25;
+        }
+        else{
+            inputBreak.value = savedBreakTime;
+        }
         inputBreak.value = savedBreakTime;
         breakMin = inputBreak.value;
         minBreak = inputBreak.value;
