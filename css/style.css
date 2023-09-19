@@ -153,6 +153,36 @@ footer{
     background-color: black;
 }
 
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 4vh;
+    }
+
+    p {
+        font-size: 2vh;
+    }
+    
+    button {
+        font-size: 3vh;
+    }
+
+    #circleContainer {
+        width: 20vh;
+        height: 20vh;
+    }
+
+    label {
+        font-size: 1.5vh;
+        width: 200px;
+    }
+
+    #workTimeInput, #breakTimeInput {
+        height: 2vh;
+        width: 4vh;
+    }
+}
+
+
 
 
 
